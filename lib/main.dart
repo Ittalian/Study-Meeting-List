@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:study_meeting_list/model/images.dart';
 
 void main() {
   runApp(const StudyMeetingList());
@@ -9,58 +10,36 @@ class StudyMeetingList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
-      theme: ThemeData(
-
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
-      home: const Home(title: 'Flutter Demo Home Page'),
+      home: Home(),
     );
   }
 }
 
 class Home extends StatefulWidget {
-  final String title;
-  const Home({super.key, required this.title});
+  const Home({super.key});
 
   @override
   State<Home> createState() => _HomeState();
 }
 
 class _HomeState extends State<Home> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
-
+  String imagePath = Images().getImagePath();
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
-        child: Column(
-
+    return Container(
+      decoration: BoxDecoration(
+          image: DecorationImage(
+        image: AssetImage(imagePath),
+        fit: BoxFit.cover,
+      )),
+      child: Scaffold(
+        backgroundColor: Colors.white.withOpacity(0),
+        body: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),
-          ],
+          children: [],
         ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
       ),
     );
   }
