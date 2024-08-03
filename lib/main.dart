@@ -38,7 +38,7 @@ void main() async {
   final client = await clientViaServiceAccount(credentials, scopes);
   final sheetsApi = SheetsApi(client);
   String spreadsheetId = dotenv.get('spreadsheetId');
-  const range = 'A2:C100';
+  const range = 'A2:C50';
 
   final response =
       await sheetsApi.spreadsheets.values.get(spreadsheetId, range);
