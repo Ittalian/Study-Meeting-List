@@ -40,7 +40,7 @@ class TileList extends StatelessWidget {
                           ),
                         )
                       ]),
-                      onTap: () => BaseRouter(urlString: urlList[index]).renderUrl,
+                      onTap: () => BaseRouter(urlString: urlList[index]).renderUrl(),
                       onLongPress: () => ConfirmDialog(
                               trueFunction: () => Notion(
                                       databaseId:

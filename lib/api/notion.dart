@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:http/http.dart' as http;
 import 'package:study_meeting_list/model/message.dart';
 import 'package:study_meeting_list/router/router.dart';
@@ -37,7 +38,7 @@ class Notion {
     const url = 'https://api.notion.com/v1/pages';
     final headers = {
       'Authorization':
-          'Bearer secret_W445mtNJhYSVIULvOzaUbAvQJ9x63KSuGj3F56Hwza6',
+          'Bearer ${dotenv.get("access_token")}',
       'Content-Type': 'application/json',
       'Notion-Version': '2021-05-13',
     };
