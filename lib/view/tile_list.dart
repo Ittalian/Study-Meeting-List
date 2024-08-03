@@ -40,13 +40,17 @@ class TileList extends StatelessWidget {
                           ),
                         )
                       ]),
-                      onTap: () => BaseRouter(urlString: urlList[index]).renderUrl(),
+                      onTap: () =>
+                          BaseRouter(urlString: urlList[index]).renderUrl(),
                       onLongPress: () => ConfirmDialog(
-                              trueFunction: () => Notion(
-                                      databaseId:
-                                          "153827ef768f4bbc879f43143ea458eb",
-                                      context: context)
-                                  .savePage(titleList[index], dateList[index]),
+                              trueFunction: () {
+                                Notion(
+                                        databaseId:
+                                            "153827ef768f4bbc879f43143ea458eb",
+                                        context: context)
+                                    .savePage(
+                                        titleList[index], dateList[index]);
+                              },
                               falseFunction: () {})
                           .showSave(context, "Save to Notion", "ページを保存しますか？")));
             }));

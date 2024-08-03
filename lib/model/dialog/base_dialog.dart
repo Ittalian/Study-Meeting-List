@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:study_meeting_list/model/dialog/loading_dialog.dart';
 
 class BaseDialog extends StatelessWidget {
   final String title;
@@ -45,9 +46,15 @@ class BaseDialog extends StatelessWidget {
                       elevation: 5,
                       shape: const StadiumBorder(),
                     ),
-                    onPressed: () {
-                      trueFunction!();
-                      Navigator.pop(context);
+                    onPressed: () async {
+                      LoadingDialog.show(context);
+                      try {
+                        await Future.delayed(const Duration(seconds: 3));
+                        trueFunction!();
+                      } finally {
+                        await LoadingDialog.hide(context);
+                        Navigator.pop(context);
+                      }
                     },
                     child: const Padding(
                       padding: EdgeInsets.symmetric(

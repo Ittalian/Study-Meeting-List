@@ -37,8 +37,7 @@ class Notion {
   void savePage(String title, String date) async {
     const url = 'https://api.notion.com/v1/pages';
     final headers = {
-      'Authorization':
-          'Bearer ${dotenv.get("access_token")}',
+      'Authorization': 'Bearer ${dotenv.get("access_token")}',
       'Content-Type': 'application/json',
       'Notion-Version': '2021-05-13',
     };

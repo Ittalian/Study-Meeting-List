@@ -7,8 +7,8 @@ class ConfirmDialog {
   const ConfirmDialog(
       {required this.trueFunction, required this.falseFunction});
 
-  void showSave(BuildContext context, String title, String message) async {
-    await showDialog(
+  void showSave(BuildContext context, String title, String message) {
+    showDialog(
       context: context,
       builder: (context) => BaseDialog(
           title: title,

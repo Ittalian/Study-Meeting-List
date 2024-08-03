@@ -7,6 +7,9 @@ class Images {
     "images/home_background2.jpg",
     "images/home_background3.jpg",
     "images/home_background4.jpg",
+    "images/home_background5.jpg",
+    "images/home_background6.jpg",
+    "images/home_background7.jpg",
   ];
 
   String getImagePath() {
