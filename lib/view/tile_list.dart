@@ -38,7 +38,7 @@ class TileList extends StatelessWidget {
                           style: const TextStyle(
                             fontSize: 15,
                           ),
-                        )
+                        ),
                       ]),
                       onTap: () =>
                           BaseRouter(urlString: urlList[index]).renderUrl(),
@@ -49,7 +49,7 @@ class TileList extends StatelessWidget {
                                             "153827ef768f4bbc879f43143ea458eb",
                                         context: context)
                                     .savePage(
-                                        titleList[index], dateList[index]);
+                                        titleList[index], dateList[index], urlList[index]);
                               },
                               falseFunction: () {})
                           .showSave(context, "Save to Notion", "ページを保存しますか？")));

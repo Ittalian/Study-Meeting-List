@@ -34,7 +34,7 @@ class Notion {
     throw const FormatException('エラーが発生しました');
   }
 
-  void savePage(String title, String date) async {
+  void savePage(String title, String date, String pageUrl) async {
     const url = 'https://api.notion.com/v1/pages';
     final headers = {
       'Authorization': 'Bearer ${dotenv.get("access_token")}',
@@ -64,6 +64,9 @@ class Notion {
         },
         "媒体": {
           "select": {"name": "Tech Play"}
+        },
+        "URL": {
+          "url": pageUrl
         }
       }
     });
